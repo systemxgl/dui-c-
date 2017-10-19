@@ -26,6 +26,7 @@ namespace ConsoleApplication1
             string content = "对对机测试订单";
             content += "\n";
             content += "单号：123456";
+            //格式详见 https://github.com/systemxgl/dui-api 或 http://www.mstching.com/openapi.pdf
             string jsonContent = "[{\"Alignment\":0,\"BaseText\":\"" + Utils.StringToBase64(content) + "\",\"Bold\":0,\"FontSize\":0,\"PrintType\":0}]";
             PrintHelper.PrintContent("您的设备编号", jsonContent, 0);//0 改成用户设备绑定返回的OpenUserId即可
             //查询任务状态
