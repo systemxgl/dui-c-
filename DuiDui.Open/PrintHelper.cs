@@ -80,7 +80,31 @@ namespace DuiDui.Open
             }
             return string.Empty;
         }
-        #endregion
+        #endregion            
+        #region==提交打印网页内容==
+        /// <summary>
+        /// 提交打印网页内容
+        /// </summary>
+        /// <param name="uuid">设备编号</param>
+        /// <param name="content">打印网页地址</param>
+        /// <param name="OpenUserId">接口三（1） 返回的OpenUserId</param>
+        /// <returns>{\"Code\":200 成功 其他失败,\"Message\":\"信息描述\",\"TaskId\":Long类型(打印任务编号)}</returns>
+        public static string PrintHtmlContent(String uuid, String printUrl, Int32 OpenUserId)
+        {
+            string url = PrintConfig.BaseUrl + "/home/printhtmlcontent" + Utils.GenerateParams();
+            HttpItem item = new HttpItem();
+            item.URL = url;
+            item.Method = "POST";
+            item.ContentType = "text/json";
+            item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"PrintUrl\":\"" + printUrl + "\",\"OpenUserId\":" + OpenUserId + "}";
+            HttpHelper helper = new HttpHelper();
+            HttpResult result = helper.GetHtml(item);
+            if (result != null)
+            {
+                return result.Html;
+            }
+            return string.Empty;
+        }
         #region==查询打印任务状态==
         /// <summary>
         /// 查询打印任务状态
