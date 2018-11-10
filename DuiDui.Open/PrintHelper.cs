@@ -10,20 +10,21 @@ namespace DuiDui.Open
     public class PrintHelper
     {
         #region==用户设备绑定==
-        /// <summary>
+         /// <summary>
         /// 用户设备绑定
         /// </summary>
         /// <param name="uuid">设备唯一编号</param>
         /// <param name="userId">与对对机平台关联的用户唯一标示（你自己系统定义的）</param>
+        /// <param name="deviceName">设备名称</param>
         /// <returns>{\"Code\":200 成功 其他失败,\"Message\":\"信息描述\",\"OpenUserId\":int类型(对对机平台用户唯一编号)}</returns>
-        public static string UserBind(String uuid, String userId)
+        public static string UserBind(String uuid, String userId, String deviceName)
         {
             string url = PrintConfig.BaseUrl + "/home/userbind" + Utils.GenerateParams();
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
             item.ContentType = "text/json";
-            item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"UserId\":\"" + userId + "\"}";
+            item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"UserId\":\"" + userId + "\",\"DeviceName\":\"" + deviceName + "\"}";
             HttpHelper helper = new HttpHelper();
             HttpResult result = helper.GetHtml(item);
             if (result != null)
