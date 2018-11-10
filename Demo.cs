@@ -19,7 +19,7 @@ namespace ConsoleApplication1
             PrintConfig.AppSecret = "您的appsecret";
 
             //用户设备绑定
-            PrintHelper.UserBind("您的设备编号", "您系统的用户编号（自己定义）最好是数字");
+            PrintHelper.UserBind("您的设备编号", "您系统的用户编号（自己定义）最好是数字","设备名称");
             //查下设备状态
             PrintHelper.GetDeviceState("您的设备编号");
             //打印信息
