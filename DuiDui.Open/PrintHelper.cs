@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +10,7 @@ namespace DuiDui.Open
     public class PrintHelper
     {
         #region==用户设备绑定==
-         /// <summary>
+        /// <summary>
         /// 用户设备绑定
         /// </summary>
         /// <param name="uuid">设备唯一编号</param>
@@ -23,6 +23,7 @@ namespace DuiDui.Open
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
+            item.PostEncoding = Encoding.UTF8;
             item.ContentType = "text/json";
             item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"UserId\":\"" + userId + "\",\"DeviceName\":\"" + deviceName + "\"}";
             HttpHelper helper = new HttpHelper();
@@ -46,6 +47,7 @@ namespace DuiDui.Open
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
+            item.PostEncoding = Encoding.UTF8;
             item.ContentType = "text/json";
             item.Postdata = "{\"Uuid\":\"" + uuid + "\"}";
             HttpHelper helper = new HttpHelper();
@@ -71,6 +73,7 @@ namespace DuiDui.Open
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
+            item.PostEncoding = Encoding.UTF8;
             item.ContentType = "text/json";
             item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"PrintContent\":'" + content + "',\"OpenUserId\":" + OpenUserId + "}";
             HttpHelper helper = new HttpHelper();
@@ -81,7 +84,7 @@ namespace DuiDui.Open
             }
             return string.Empty;
         }
-        #endregion            
+        #endregion
         #region==提交打印网页内容==
         /// <summary>
         /// 提交打印网页内容
@@ -96,6 +99,7 @@ namespace DuiDui.Open
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
+            item.PostEncoding = Encoding.UTF8;
             item.ContentType = "text/json";
             item.Postdata = "{\"Uuid\":\"" + uuid + "\",\"PrintUrl\":\"" + printUrl + "\",\"OpenUserId\":" + OpenUserId + "}";
             HttpHelper helper = new HttpHelper();
@@ -106,6 +110,7 @@ namespace DuiDui.Open
             }
             return string.Empty;
         }
+        #endregion
         #region==查询打印任务状态==
         /// <summary>
         /// 查询打印任务状态
@@ -118,6 +123,7 @@ namespace DuiDui.Open
             HttpItem item = new HttpItem();
             item.URL = url;
             item.Method = "POST";
+            item.PostEncoding = Encoding.UTF8;
             item.ContentType = "text/json";
             item.Postdata = "{\"TaskId\":\"" + taskId + "\"}";
             HttpHelper helper = new HttpHelper();
